@@ -6,7 +6,7 @@ import ProductDataService from "../services/product-services";
 import { useNavigate } from "react-router-dom";
 
 
-function Login(props) {
+function Login({loginapp}) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -19,14 +19,19 @@ function Login(props) {
     setPassword(password);
   };
   const login = () => {
-    props.loginapp({ username: username, password: password });
+    loginapp({ username: username, password: password });
     // props.history.push('/');
  
     navigate("/");
   };
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    login();
+  };
+  
   return (
     <Container>
-      <Form>
+      <Form onsubmit={handleFormSubmit}>
         <Form.Group className="mb-3">
           <Form.Label>Username</Form.Label>
           <Form.Control
@@ -45,7 +50,7 @@ function Login(props) {
             onChange={onChangePassword}
           />
         </Form.Group>
-        <Button variant="primary" onClick={login}>
+        <Button type="submit" variant="primary" onClick={login}>
           Login{" "}
         </Button>
       </Form>{" "}

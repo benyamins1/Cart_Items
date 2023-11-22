@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import {useNavigate} from 'react-router-dom';
-function Signup(props) {
+function Signup({signupapp}) {
   const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [firstName, setFirstName] = useState("");
@@ -32,7 +32,7 @@ function Signup(props) {
         setEmail(email);
     }
     const signup = () => {
-        props.signupapp({
+        signupapp({
             username: username,
             password: password,
             first_name: firstName,
