@@ -1,21 +1,15 @@
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { NavLink, Route, Routes } from "react-router-dom";
-import Products from "./components/Products";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
-import { useEffect, useState } from "react";
-import productServices from "./services/product-services";
-import { Button, Form } from "react-bootstrap";
-import React from "react";
-import { ShoppingCart } from "./components/ShoppingCart";
-import {FcSearch} from 'react-icons/fc'
-import {BsCartFill} from 'react-icons/bs';
-import {ToastContainer} from 'react-toastify';
+import React, { useEffect, useState } from "react";
+import Container from "react-bootstrap/Container";
+import { Route, Routes } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { toast } from 'react-toastify';
+import Login from "./components/Login";
+import Navb from "./components/Navb";
+import Products from "./components/Products";
+import { ShoppingCart } from "./components/ShoppingCart";
+import Signup from "./components/Signup";
+import productServices from "./services/product-services";
 
 function App() { 
   const [user, setUser] = useState(null);
@@ -131,9 +125,11 @@ function App() {
   }
   return (
     <div className="App">
-      <Navbar bg="dark" data-bs-theme="dark">
+      <Navb user={user} logout={logout} cartItemCount={cartItemCount} handleSearch={handleSearch}
+      searchTerm={searchTerm} setSearchTerm={setSearchTerm} setIsOpen={setIsOpen}/>
+      {/* <Navbar bg="dark" data-bs-theme="dark">
         <Container>
-          <Navbar.Brand href="#home">CartWeb</Navbar.Brand>
+          <Navbar.Brand href="/">CartWeb</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link to="/" as={NavLink}>
               {" "}
@@ -198,7 +194,7 @@ function App() {
                         </div>
                     </Button>
         </Container>
-      </Navbar>
+      </Navbar> */}
       <ShoppingCart isOpen={isOpen} closeCart={closeCart} cartItems={cartItems} setCartItems={setCartItems} token={token} />
       <Container className="mb-4">
         <Routes>

@@ -64,11 +64,13 @@ async function decreaseCartQuantity() {
 
   async function removeFromCart() {
     const existingProductIndex = cartItems.findIndex(item => item.product.id === product.id)
+    console.log(cartItems)
+    console.log(product)
     await ProductService.deleteCartItem(cartItems[existingProductIndex].id, token)
     setCartItems(prevCartItems => prevCartItems.filter(item => item.product.id !== product.id));
 }
     return (
-<Card className='h-100 mb-3'>
+<Card className='h-100 mb-3 border-3 border-info' >
             <Card.Img
                 variant='top'
                 src={product.image}

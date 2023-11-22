@@ -8,7 +8,7 @@ urlpatterns = [
     path('cartitems/', CartItemList.as_view(), name='cartitem-list'),
     path('cartitems/<int:pk>/', CartItemDetail.as_view(), name='cartitem-detail'),
     path('carts/', CartDetail.as_view(), name='cart-detail'),
-    path('token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
+    # path('token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    # path('token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
     path('register/',RegisterApi.as_view(), name='register'),
 ]
