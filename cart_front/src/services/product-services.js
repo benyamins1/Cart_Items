@@ -1,7 +1,8 @@
 import axios from 'axios';
 class ProductDataService {
     
-        axe="https://django1-txc8.onrender.com"
+        // axe="https://django1-txc8.onrender.com"
+           axe="http://127.0.0.1:8000"
     
     login(data) {
         return axios.post(`${this.axe}/token/`, data);
